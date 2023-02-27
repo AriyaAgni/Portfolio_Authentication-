@@ -6,6 +6,10 @@ let Contact = require('../models/contacts');
 
 //we want to display the contactList
 module.exports.displayContactList = (req, res, next) => {
+    if (!req.isAuthenticated())
+    {
+        return res.redirect('/login')
+    }
     Contact.find((err, contactList) => {
         if (err) {
             return console.error(err);
