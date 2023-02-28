@@ -17,16 +17,16 @@ module.exports.displayContactList = (req, res, next) => {
         else {
            //console.log(ContactList);
 
-           const sortedContactList = contactList.sort(function (a, b) {
-                if (a.name.toLowerCase() < b.name.toLowerCase()) {
-                    return -1;
-                }
-                if (a.name.toLowerCase() > b.name.toLowerCase()) {
-                    return 1;
-                }
-                return 0;
-                });
-            res.render('contact/list', { title: 'Business Contacts List View', ContactList: sortedContactList,displayName:req.user?req.user.displayName:'' });
+        //    const sortedContactList = contactList.sort(function (a, b) {
+        //         if (a.name.toLowerCase() < b.name.toLowerCase()) {
+        //             return -1;
+        //         }
+        //         if (a.name.toLowerCase() > b.name.toLowerCase()) {
+        //             return 1;
+        //         }
+        //         return 0;
+        //         });
+            res.render('contact/list', { title: 'Business Contacts List View', ContactList: contactList,displayName:req.user?req.user.displayName:'' });
         }
     });
 }
